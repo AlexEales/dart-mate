@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Lilita+One&display=swap');
+
+$white: #faf3e3;
+$black: #323845;
+
+$red: #f6404f;
+$blue: #30bcc9;
+$yellow: #fada80;
+
+html,
+body {
+  background-color: $white;
+  color: $black;
+  font-family: 'Lilita One', cursive;
+}
