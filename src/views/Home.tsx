@@ -1,7 +1,14 @@
-import { h, render, Component } from 'preact';
+import { h, Component } from 'preact';
+import { Link } from 'preact-router/match';
 
 export default class Home extends Component {
     render() {
-        return <h1>Dart Mate</h1>;
+        return (
+            <main>
+                <h1>Dart Mate</h1>
+
+                <Link activeClassName="active" href="/killer">Killer</Link>
+            </main>
+        );
     }
 }
