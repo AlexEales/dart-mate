@@ -1,0 +1,65 @@
+@mixin repeat-char($char, $count) {
+  $string: "";
+  @for $i from 1 through $count {
+    $string: $string + $char;
+  }
+  content: $string;
+}
+
+.killer-player {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__name {
+    font-size: 3em;
+    line-height: 0.1em;
+  }
+
+  &__add,
+  &__remove {
+    border: none;
+    border-radius: 8px;
+    font-family: 'Lilita One', cursive;
+    font-size: 2em;
+    height: 1.5em;
+    width: 1.5em;
+  }
+
+  &__add:disabled,
+  &__remove:disabled {
+    background-color: lighten($color: $black, $amount: 50%);
+    color: $black;
+  }
+
+  &__add {
+    background-color: $green;
+    color: $black;
+    margin-right: 8px;
+  }
+
+  &__remove {
+    background-color: $red;
+    color: $white;
+  }
+
+  &--dead {
+    .killer-player__name {
+      color: lighten($color: $black, $amount: 10%);
+      text-decoration: line-through;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    &__lives-#{$i} {
+      font-size: 2.5em;
+      line-height: 0.1em;
+      text-align: center;
+
+      &::after {
+        @include repeat-char("|", $i);
+      }
+    }
+  }
+}
