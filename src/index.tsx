@@ -1,9 +1,14 @@
-import { h, render, Component } from 'preact';
+import { h, render } from 'preact';
+import Router from 'preact-router';
 
-class App extends Component {
-    render() {
-        return <h1>Dartmate</h1>;
-    }
-}
+import Killer from './views/Killer';
+import Home from './views/Home';
 
-render(<App />, document.body);
+const Main = () => (
+    <Router>
+        <Home path="/"/>
+        <Killer path="/killer"/>
+    </Router>
+);
+
+render(<Main/>, document.body);
