@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import { route } from 'preact-router';
 import { Link } from 'preact-router/match';
 
 import KillerPlayer from '../components/KillerPlayer';
@@ -9,6 +10,7 @@ export interface State {
     players: string[],
     formValue: string,
     inputShown: boolean,
+    alivePlayers: string[],
 };
 
 export default class Killer extends Component<Props, State> {
@@ -17,8 +19,15 @@ export default class Killer extends Component<Props, State> {
         this.state = {
             players: [],
             formValue: '',
+            alivePlayers: [],
             inputShown: false
         };
+    }
+
+    checkForWin = () => {
+        if (this.state.players.length >= 2 && this.state.alivePlayers.length === 1) {
+            route(`/winner/${this.state.alivePlayers[0]}/killer`);
+        }
     }
 
     addPlayer = () => {
@@ -26,9 +35,12 @@ export default class Killer extends Component<Props, State> {
             this.setState(prev => {
                 let newPlayers = prev.players;
                 newPlayers.push(prev.formValue);
+                let alivePlayers = prev.alivePlayers;
+                alivePlayers.push(prev.formValue);
                 return { 
                     players: newPlayers,
                     formValue: '',
+                    alivePlayers: alivePlayers,
                     inputShown: false
                 };
             });
@@ -44,7 +56,25 @@ export default class Killer extends Component<Props, State> {
         this.setState({ formValue: value });
     }
 
-    render(_: Props, { players, formValue, inputShown }: State) {
+    deathHandler = (player: string) => {
+        this.setState(prev => {
+            let alivePlayers = prev.alivePlayers;
+            let idx = alivePlayers.indexOf(player);
+            alivePlayers.splice(idx, 1);
+            return { alivePlayers };
+        });
+        this.checkForWin();
+    }
+
+    reviveHandler = (player: string) => {
+        this.setState(prev => {
+            let alivePlayers = prev.alivePlayers;
+            alivePlayers.push(player);
+            return { alivePlayers };
+        });
+    }
+
+    render(_: Props, { players, formValue, alivePlayers, inputShown }: State) {
         return (
             <main>
                 <h1 class="killer__title">Killer</h1>
@@ -57,7 +87,9 @@ export default class Killer extends Component<Props, State> {
                     : ""
                 }
 
-                {players.map(player => <KillerPlayer name={player} />)}
+                {players.map(player => 
+                    <KillerPlayer name={player}deathHandler={this.deathHandler} reviveHandler={this.reviveHandler}/>
+                )}
 
                 <div className="killer__add-player">
                     {

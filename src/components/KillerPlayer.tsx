@@ -1,7 +1,9 @@
 import { h, Component } from 'preact';
 
 export interface Props {
-    name: string
+    name: string,
+    deathHandler: Function,
+    reviveHandler: Function
 };
 
 export interface State {
@@ -25,6 +27,7 @@ export default class KillerPlayer extends Component<Props, State> {
                 lives: 1
             };
         });
+        this.props.reviveHandler(this.props.name);
     }
 
     add = () => {
@@ -36,6 +39,9 @@ export default class KillerPlayer extends Component<Props, State> {
     subtract = () => {
         this.setState(prev => {
             let dead = prev.lives - 1 <= 0;
+            if (dead) {
+                this.props.deathHandler(this.props.name);
+            }
             return {
                 dead: dead,
                 lives: dead ? 0 : prev.lives - 1
