@@ -7,7 +7,9 @@ export default class Home extends Component {
             <main>
                 <h1>Dart Mate</h1>
 
-                <Link activeClassName="active" href="/killer">Killer</Link>
+                <Link class="home__killer-link" activeClassName="active" href="/killer">🔪 Killer 🔪</Link>
+
+                <div class="home__coming-soon">More games coming soon...</div>
             </main>
         );
     }
