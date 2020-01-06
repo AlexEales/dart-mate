@@ -19,7 +19,7 @@ export default class KillerPlayer extends Component<Props, State> {
     }
 
     revive = () => {
-        this.setState(prev => {
+        this.setState(_ => {
             return {
                 dead: false,
                 lives: 1

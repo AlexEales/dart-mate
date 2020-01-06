@@ -1,0 +1,43 @@
+h1 {
+  &::before,
+  &::after {
+    content: "🔪";
+  }
+}
+
+.killer {
+  &__add-player {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  &__add-player-submit {
+    background-color: $black;
+    border: none;
+    border-radius: 50%;
+    color: $white;
+    font-family: 'Lilita One', cursive;
+    font-size: 2.5em;
+    height: 52px;
+    margin-top: 16px;
+    position: relative;
+    width: 52px;
+  }
+
+  &__add-player-form {
+    border: 2px solid $black;
+    border-radius: 8px;
+    font-family: 'Lilita One', cursive;
+    font-size: 2.5em;
+    height: 48px;
+    position: relative;
+    width: calc(90% - 64px);
+  }
+
+  &__add-player-form~&__add-player-submit {
+    margin-left: 8px;
+    margin-top: 0;
+  }
+}
