@@ -81,6 +81,13 @@ export default class Killer extends Component<Props, State> {
         });
     }
 
+    reset = () => {
+        this.setState(prev => ({
+            players: [],
+            alivePlayers: []
+        }));
+    }
+
     render(_: Props, { players, formValue, inputShown }: State) {
         return (
             <main>
@@ -114,6 +121,8 @@ export default class Killer extends Component<Props, State> {
                         : ""
                     }  
                 </div>
+
+                <button class="killer__reset" onClick={this.reset}>Reset</button>
             </main>
         );
     }

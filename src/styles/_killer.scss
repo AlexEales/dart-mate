@@ -70,4 +70,21 @@
     margin-left: 8px;
     margin-top: 0;
   }
+
+  &__reset {
+    background-color: $red;
+    border: none;
+    border-radius: 4px;
+    bottom: 8px;
+    color: $white;
+    display: flex;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.75em;
+    justify-content: center;
+    left: 50%;
+    padding: 8px 16px;
+    position: fixed;
+    transform: translateX(-50%);
+    width: 50%;
+  }
 }
