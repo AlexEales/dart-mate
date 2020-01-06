@@ -1,11 +1,12 @@
-h1 {
-  &::before,
-  &::after {
-    content: "🔪";
-  }
-}
 
 .killer {
+  &__title {
+    &::before,
+    &::after {
+      content: "🔪";
+    }
+  }
+
   &__add-player {
     align-items: center;
     display: flex;
@@ -13,11 +14,10 @@ h1 {
     justify-content: center;
   }
   
-  &__add-player-submit {
-    background-color: $black;
+  &__add-player-submit,
+  &__add-player-cancel {
     border: none;
     border-radius: 50%;
-    color: $white;
     font-family: 'Lilita One', cursive;
     font-size: 2.5em;
     height: 52px;
@@ -26,12 +26,26 @@ h1 {
     width: 52px;
   }
 
+  &__add-player-submit {
+    background-color: $black;
+    color: $white;
+  }
+
+  &__add-player-cancel {
+    background-color: $red;
+    color: $white;
+    margin-left: 8px;
+    margin-top: 0;
+  }
+
   &__add-player-form {
     border: 2px solid $black;
     border-radius: 8px;
+    color: $black;
     font-family: 'Lilita One', cursive;
-    font-size: 2.5em;
+    font-size: 2em;
     height: 48px;
+    padding-left: 8px;
     position: relative;
     width: calc(90% - 64px);
   }

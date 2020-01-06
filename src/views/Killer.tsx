@@ -50,7 +50,7 @@ export default class Killer extends Component<Props, State> {
     render(_: Props, { players, formValue, inputShown }: State) {
         return (
             <main>
-                <h1>Killer</h1>
+                <h1 class="killer__title">Killer</h1>
 
                 <Link activeClassName="active" href="/">Home</Link>
 
@@ -63,10 +63,15 @@ export default class Killer extends Component<Props, State> {
                         inputShown
                         ? <input type="text" class="killer__add-player-form"
                                 value={formValue} onInput={this.onFormInput}
-                                maxLength={5}/>
+                                maxLength={5} placeholder="Player Name"/>
                         : ""
                     }   
                     <button class="killer__add-player-submit" onClick={inputShown ? this.addPlayer : this.toggleInput}>+</button>
+                    {
+                        inputShown
+                        ? <button class="killer__add-player-cancel" onClick={this.toggleInput}>X</button>
+                        : ""
+                    }  
                 </div>
             </main>
         );
