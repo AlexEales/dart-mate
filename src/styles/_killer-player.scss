@@ -17,6 +17,17 @@
     line-height: 0.1em;
   }
 
+  &__revive {
+    background-color: $blue;
+    border: none;
+    border-radius: 8px;
+    color: $white;
+    font-family: 'Lilita One', cursive;
+    font-size: 2em;
+    height: 1.5em;
+    width: 3.5em;
+  }
+
   &__add,
   &__remove {
     border: none;
@@ -60,6 +71,14 @@
       &::after {
         @include repeat-char("|", $i);
       }
+    }
+  }
+
+  &__lives-5 {
+    color: $red;
+
+    &::after {
+      content: "Killer";
     }
   }
 }
