@@ -1,10 +1,21 @@
-
 .killer {
   &__title {
     &::before,
     &::after {
       content: "🔪";
     }
+  }
+
+  &__home-link {
+    background-color: $black;
+    border-radius: 4px;
+    color: $white;
+    display: flex;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.5em;
+    justify-content: center;
+    padding: 4px 8px;
+    text-decoration: none;
   }
 
   &__add-player {

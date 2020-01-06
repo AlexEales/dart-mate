@@ -52,11 +52,9 @@ export default class Killer extends Component<Props, State> {
             <main>
                 <h1 class="killer__title">Killer</h1>
 
-                <Link activeClassName="active" href="/">Home</Link>
+                <Link class="killer__home-link" activeClassName="active" href="/">Home</Link>
 
-                <div id="killer-players">
-                    {players.map(player => <KillerPlayer name={player} />)}
-                </div>
+                {players.map(player => <KillerPlayer name={player} />)}
 
                 <div className="killer__add-player">
                     {
