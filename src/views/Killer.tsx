@@ -56,6 +56,13 @@ export default class Killer extends Component<Props, State> {
         this.setState({ formValue: value });
     }
 
+    onFormEnter = (e) => {
+        let keycode = e.keycode || e.which;
+        if (keycode === 13) {
+            this.addPlayer();
+        }
+    }
+
     deathHandler = (player: string) => {
         this.setState(prev => {
             let alivePlayers = prev.alivePlayers;
@@ -74,7 +81,7 @@ export default class Killer extends Component<Props, State> {
         });
     }
 
-    render(_: Props, { players, formValue, alivePlayers, inputShown }: State) {
+    render(_: Props, { players, formValue, inputShown }: State) {
         return (
             <main>
                 <h1 class="killer__title">Killer</h1>
@@ -96,6 +103,7 @@ export default class Killer extends Component<Props, State> {
                         inputShown
                         ? <input type="text" class="killer__add-player-form"
                                 value={formValue} onInput={this.onFormInput}
+                                onKeyPress={this.onFormEnter}
                                 maxLength={5} placeholder="Player Name"/>
                         : ""
                     }   
