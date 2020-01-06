@@ -15,10 +15,7 @@ export default class Killer extends Component<Props, State> {
     constructor() {
         super();
         this.state = {
-            players: [
-                "Alex",
-                "Mils"
-            ],
+            players: [],
             formValue: '',
             inputShown: false
         };
@@ -53,6 +50,12 @@ export default class Killer extends Component<Props, State> {
                 <h1 class="killer__title">Killer</h1>
 
                 <Link class="killer__home-link" activeClassName="active" href="/">Home</Link>
+
+                {
+                    players.length <= 0
+                    ? <p class="killer__no-players-msg">Press the plus below to add players!</p>
+                    : ""
+                }
 
                 {players.map(player => <KillerPlayer name={player} />)}
 
