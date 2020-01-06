@@ -17,7 +17,7 @@ body {
 
 h1 {
   font-size: 4.5em;
-  line-height: 0.1em;
+  margin: 16px 0;
   text-align: center;
 }
 
@@ -26,4 +26,5 @@ h1 {
 
 // View Styles
 @import "./styles/home";
-@import "./styles/killer"
+@import "./styles/killer";
+@import "./styles/winner";
