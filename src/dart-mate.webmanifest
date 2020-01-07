@@ -1,0 +1,31 @@
+{
+    "name": "Dart Mate",
+    "short_name": "Dart Mate",
+    "description": "Simple app for tracking dart games such as 501, 301, Killer and Around the Clock.",
+    "start_url": "https://dart-mate.web.app/",
+    "display": "standalone",
+    "theme_color": "#faf3e3",
+    "background_color": "#faf3e3",
+    "icons": [
+        {
+            "src": "icons/icon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-64x64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-128x128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
