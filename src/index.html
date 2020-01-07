@@ -7,6 +7,16 @@
   <title>Dart Mate</title>
 
   <link rel="stylesheet" href="./main.scss">
+
+  <script>
+  // Check for service worker support
+  if ('serviceWorker' in navigator) {
+    // Use window load event for page load performance
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js');
+    });
+  }
+  </script>
 </head>
 <body>
   <script src="index.tsx"></script>
